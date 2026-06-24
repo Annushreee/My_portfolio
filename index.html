@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Anushree Kekapure | Software Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy: #0A0F1E;
+    --card: #111827;
+    --card2: #1a2235;
+    --cyan: #00D4FF;
+    --violet: #7C6AF7;
+    --offwhite: #E8EDF5;
+    --muted: #8896B3;
+    --border: rgba(255,255,255,0.08);
+  }
+  body {
+    background: var(--navy);
+    color: var(--offwhite);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+  a { color: var(--cyan); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(10,15,30,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0.9rem 2.5rem;
+  }
+  .nav-logo {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1rem; font-weight: 700;
+    color: var(--cyan); letter-spacing: -0.02em;
+  }
+  .nav-links { display: flex; gap: 2rem; }
+  .nav-links a {
+    font-size: 0.82rem; font-weight: 500;
+    color: var(--muted); letter-spacing: 0.06em;
+    text-transform: uppercase; transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--offwhite); text-decoration: none; }
+
+  section { padding: 5rem 2.5rem; max-width: 900px; margin: 0 auto; }
+
+  #hero {
+    min-height: 90vh; display: flex; flex-direction: column;
+    justify-content: center; padding-top: 3rem;
+  }
+  .terminal-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem; color: var(--cyan);
+    background: rgba(0,212,255,0.08);
+    border: 1px solid rgba(0,212,255,0.2);
+    display: inline-block; padding: 0.3rem 0.8rem;
+    border-radius: 4px; margin-bottom: 1.5rem;
+    letter-spacing: 0.04em;
+  }
+  .hero-name {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: clamp(2.4rem, 6vw, 4rem);
+    font-weight: 700; line-height: 1.1;
+    color: var(--offwhite); letter-spacing: -0.03em;
+  }
+  .hero-name span { color: var(--cyan); }
+  .hero-role {
+    font-size: 1.15rem; color: var(--muted);
+    margin: 1rem 0 0.4rem; font-weight: 300;
+  }
+  .hero-role strong { color: var(--violet); font-weight: 500; }
+  .hero-desc {
+    font-size: 0.95rem; color: var(--muted);
+    max-width: 520px; margin: 0.5rem 0 2rem; line-height: 1.75;
+  }
+  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--cyan); color: var(--navy);
+    font-weight: 600; font-size: 0.85rem;
+    padding: 0.7rem 1.6rem; border-radius: 6px;
+    letter-spacing: 0.03em; transition: opacity 0.2s;
+  }
+  .btn-primary:hover { opacity: 0.85; text-decoration: none; }
+  .btn-ghost {
+    border: 1px solid var(--border);
+    color: var(--offwhite); font-size: 0.85rem;
+    padding: 0.7rem 1.6rem; border-radius: 6px;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .btn-ghost:hover { border-color: var(--cyan); color: var(--cyan); text-decoration: none; }
+
+  .hero-stats {
+    display: flex; gap: 2.5rem; margin-top: 3.5rem;
+    border-top: 1px solid var(--border); padding-top: 2rem;
+  }
+  .stat-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.6rem; font-weight: 700; color: var(--offwhite);
+  }
+  .stat-num span { color: var(--cyan); }
+  .stat-label { font-size: 0.75rem; color: var(--muted); margin-top: 0.15rem; letter-spacing: 0.04em; text-transform: uppercase; }
+
+  .section-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem; color: var(--cyan);
+    letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.6rem;
+  }
+  .section-title {
+    font-size: 1.9rem; font-weight: 600;
+    color: var(--offwhite); letter-spacing: -0.02em; margin-bottom: 2.5rem;
+  }
+
+  .skills-grid { display: flex; flex-direction: column; gap: 1.5rem; }
+  .skill-group-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem; color: var(--muted);
+    text-transform: uppercase; letter-spacing: 0.1em; min-width: 100px;
+  }
+  .skill-row { display: flex; align-items: flex-start; gap: 1.5rem; }
+  .skill-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .pill {
+    font-size: 0.78rem; font-weight: 500;
+    padding: 0.3rem 0.8rem; border-radius: 4px;
+    border: 1px solid var(--border); color: var(--offwhite);
+    background: var(--card); font-family: 'JetBrains Mono', monospace;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .pill:hover { border-color: var(--violet); color: var(--violet); }
+  .pill.cyan { border-color: rgba(0,212,255,0.3); color: var(--cyan); background: rgba(0,212,255,0.06); }
+
+  .exp-list { display: flex; flex-direction: column; gap: 1.5rem; }
+  .exp-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 10px; padding: 1.5rem 1.75rem;
+    position: relative; overflow: hidden; transition: border-color 0.2s;
+  }
+  .exp-card::before {
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+    width: 3px; background: var(--violet);
+  }
+  .exp-card:hover { border-color: rgba(124,106,247,0.4); }
+  .exp-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.75rem; }
+  .exp-title { font-size: 1rem; font-weight: 600; color: var(--offwhite); }
+  .exp-company { font-size: 0.85rem; color: var(--violet); margin-top: 0.2rem; }
+  .exp-date {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem; color: var(--muted);
+    background: rgba(255,255,255,0.04);
+    padding: 0.25rem 0.6rem; border-radius: 4px;
+    border: 1px solid var(--border); white-space: nowrap;
+  }
+  .exp-bullets { list-style: none; margin-top: 0.5rem; }
+  .exp-bullets li {
+    font-size: 0.87rem; color: var(--muted);
+    padding: 0.25rem 0; padding-left: 1.2rem;
+    position: relative; line-height: 1.6;
+  }
+  .exp-bullets li::before {
+    content: '▸'; position: absolute; left: 0;
+    color: var(--cyan); font-size: 0.65rem; top: 0.4rem;
+  }
+
+  .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 1.25rem; }
+  .proj-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 10px; padding: 1.5rem 1.75rem;
+    transition: border-color 0.2s, transform 0.2s; display: flex; flex-direction: column;
+  }
+  .proj-card:hover { border-color: rgba(0,212,255,0.3); transform: translateY(-2px); }
+  .proj-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem; }
+  .proj-icon { font-size: 1.4rem; }
+  .proj-link {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem; color: var(--cyan);
+    border: 1px solid rgba(0,212,255,0.2);
+    padding: 0.25rem 0.6rem; border-radius: 4px; transition: background 0.2s;
+  }
+  .proj-link:hover { background: rgba(0,212,255,0.08); text-decoration: none; }
+  .proj-name { font-size: 1rem; font-weight: 600; color: var(--offwhite); margin-bottom: 0.5rem; }
+  .proj-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.65; flex: 1; margin-bottom: 1rem; }
+  .proj-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .proj-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem; color: var(--violet);
+    background: rgba(124,106,247,0.1);
+    border: 1px solid rgba(124,106,247,0.2);
+    padding: 0.2rem 0.55rem; border-radius: 3px;
+  }
+
+  .awards-list { display: flex; flex-direction: column; gap: 0.85rem; }
+  .award-item {
+    display: flex; align-items: flex-start; gap: 1rem;
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 8px; padding: 1rem 1.25rem;
+  }
+  .award-bullet {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem; color: var(--cyan);
+    background: rgba(0,212,255,0.08);
+    border: 1px solid rgba(0,212,255,0.2);
+    padding: 0.2rem 0.5rem; border-radius: 3px;
+    white-space: nowrap; margin-top: 0.1rem;
+  }
+  .award-text { font-size: 0.88rem; color: var(--muted); line-height: 1.5; }
+
+  #contact { text-align: center; }
+  #contact .section-eyebrow, #contact .section-title { text-align: center; }
+  .contact-sub { font-size: 0.95rem; color: var(--muted); max-width: 440px; margin: -1.5rem auto 2.5rem; line-height: 1.75; }
+  .contact-links { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+  .contact-chip {
+    display: flex; align-items: center; gap: 0.5rem;
+    border: 1px solid var(--border); border-radius: 8px;
+    padding: 0.75rem 1.25rem; font-size: 0.85rem;
+    color: var(--offwhite); background: var(--card);
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .contact-chip:hover { border-color: var(--cyan); color: var(--cyan); text-decoration: none; }
+
+  footer {
+    border-top: 1px solid var(--border);
+    text-align: center; padding: 2rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem; color: var(--muted);
+  }
+
+  .divider { border: none; border-top: 1px solid var(--border); margin: 0; }
+
+  .cursor {
+    display: inline-block; width: 2px; height: 1.1em;
+    background: var(--cyan); vertical-align: text-bottom;
+    animation: blink 1s step-end infinite; margin-left: 2px;
+  }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+  @media (max-width: 600px) {
+    nav { padding: 0.9rem 1.25rem; }
+    .nav-links { gap: 1.2rem; }
+    section { padding: 3.5rem 1.25rem; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .hero-stats { gap: 1.5rem; }
+    .skill-row { flex-direction: column; gap: 0.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">AK<span style="color:var(--violet)">.</span></div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<section id="hero">
+  <div class="terminal-tag">$ available for opportunities</div>
+  <h1 class="hero-name">Anushree<br/><span>Kekapure</span><span class="cursor"></span></h1>
+  <p class="hero-role">Computer Science Engineer &nbsp;·&nbsp; <strong>Full-Stack & Cloud</strong></p>
+  <p class="hero-desc">
+    Final-year CS student building scalable web applications and cloud infrastructure.
+    Passionate about clean code, containerization, and solving real-world problems.
+  </p>
+  <div class="hero-btns">
+    <a class="btn-primary" href="mailto:akekapure10@gmail.com">Get in touch</a>
+    <a class="btn-ghost" href="https://github.com/anushree-kekapure" target="_blank">GitHub ↗</a>
+  </div>
+  <div class="hero-stats">
+    <div>
+      <div class="stat-num">8.45<span>+</span></div>
+      <div class="stat-label">CGPA</div>
+    </div>
+    <div>
+      <div class="stat-num">2<span>×</span></div>
+      <div class="stat-label">Internships</div>
+    </div>
+    <div>
+      <div class="stat-num">2<span>+</span></div>
+      <div class="stat-label">Projects shipped</div>
+    </div>
+    <div>
+      <div class="stat-num">3<span>★</span></div>
+      <div class="stat-label">HackerRank Java</div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<section id="about">
+  <div class="section-eyebrow">// skills</div>
+  <h2 class="section-title">Technical stack</h2>
+  <div class="skills-grid">
+    <div class="skill-row">
+      <div class="skill-group-label">Languages</div>
+      <div class="skill-pills">
+        <span class="pill cyan">Java</span>
+        <span class="pill cyan">Python</span>
+        <span class="pill cyan">JavaScript</span>
+        <span class="pill cyan">C/C++</span>
+      </div>
+    </div>
+    <div class="skill-row">
+      <div class="skill-group-label">Frontend</div>
+      <div class="skill-pills">
+        <span class="pill">ReactJS</span>
+        <span class="pill">HTML/CSS</span>
+      </div>
+    </div>
+    <div class="skill-row">
+      <div class="skill-group-label">Backend</div>
+      <div class="skill-pills">
+        <span class="pill">Node.js</span>
+        <span class="pill">REST APIs</span>
+        <span class="pill">Microservices</span>
+      </div>
+    </div>
+    <div class="skill-row">
+      <div class="skill-group-label">Databases</div>
+      <div class="skill-pills">
+        <span class="pill">MySQL</span>
+        <span class="pill">MongoDB</span>
+      </div>
+    </div>
+    <div class="skill-row">
+      <div class="skill-group-label">Cloud & Tools</div>
+      <div class="skill-pills">
+        <span class="pill">AWS EC2/S3</span>
+        <span class="pill">Docker</span>
+        <span class="pill">Git</span>
+        <span class="pill">Linux</span>
+        <span class="pill">CI/CD</span>
+        <span class="pill">Jenkins</span>
+      </div>
+    </div>
+    <div class="skill-row">
+      <div class="skill-group-label">Core CS</div>
+      <div class="skill-pills">
+        <span class="pill">DSA</span>
+        <span class="pill">OOP</span>
+        <span class="pill">DBMS</span>
+        <span class="pill">OS</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<section id="experience">
+  <div class="section-eyebrow">// experience</div>
+  <h2 class="section-title">Where I've worked</h2>
+  <div class="exp-list">
+    <div class="exp-card">
+      <div class="exp-header">
+        <div>
+          <div class="exp-title">Web Developer Intern</div>
+          <div class="exp-company">InnoByte Services Pvt. Ltd.</div>
+        </div>
+        <div class="exp-date">Jun 2025 – Jul 2025</div>
+      </div>
+      <ul class="exp-bullets">
+        <li>Developed and optimized frontend logic for a client project with 1,000+ daily users</li>
+        <li>Improved UI responsiveness across 10+ pages, reducing load time by 25%</li>
+        <li>Engineered modular ReactJS components and RESTful APIs, enabling a 40% faster development cycle</li>
+        <li>Achieved 15% improvement in code reusability by modularizing shared components</li>
+      </ul>
+    </div>
+    <div class="exp-card">
+      <div class="exp-header">
+        <div>
+          <div class="exp-title">Cloud Intern</div>
+          <div class="exp-company">Meta Craftlab Pvt. Ltd.</div>
+        </div>
+        <div class="exp-date">Jun 2024 – Jul 2024</div>
+      </div>
+      <ul class="exp-bullets">
+        <li>Deployed 3+ web applications on AWS using EC2 and S3 services</li>
+        <li>Configured virtual servers, security groups, and environment variables</li>
+        <li>Integrated CI/CD pipelines with Jenkins and GitHub Actions</li>
+        <li>Managed cloud infrastructure supporting 500+ concurrent users</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<section id="projects">
+  <div class="section-eyebrow">// projects</div>
+  <h2 class="section-title">Things I've built</h2>
+  <div class="projects-grid">
+    <div class="proj-card">
+      <div class="proj-top">
+        <div class="proj-icon">⚙️</div>
+        <a class="proj-link" href="https://github.com/anushree-kekapure" target="_blank">GitHub ↗</a>
+      </div>
+      <div class="proj-name">Online Code Compiler</div>
+      <div class="proj-desc">
+        Multi-language code compiler supporting Python, JavaScript, Java, and C++ with Docker-based sandbox isolation. Features real-time execution, a Node.js backend, React frontend, and Docker Compose orchestration for secure containerized environments.
+      </div>
+      <div class="proj-tags">
+        <span class="proj-tag">React</span>
+        <span class="proj-tag">Node.js</span>
+        <span class="proj-tag">Docker</span>
+        <span class="proj-tag">Algorithms</span>
+      </div>
+    </div>
+    <div class="proj-card">
+      <div class="proj-top">
+        <div class="proj-icon">🌾</div>
+        <a class="proj-link" href="https://github.com/anushree-kekapure" target="_blank">GitHub ↗</a>
+      </div>
+      <div class="proj-name">Agrimate</div>
+      <div class="proj-desc">
+        Smart Agricultural Assistance System — a centralized platform to manage agricultural data, resolve information inconsistencies, and improve system reliability through structured debugging and data integration.
+      </div>
+      <div class="proj-tags">
+        <span class="proj-tag">Java</span>
+        <span class="proj-tag">JDBC</span>
+        <span class="proj-tag">MySQL</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<section id="awards">
+  <div class="section-eyebrow">// honors</div>
+  <h2 class="section-title">Awards & recognition</h2>
+  <div class="awards-list">
+    <div class="award-item">
+      <div class="award-bullet">🏆 award</div>
+      <div class="award-text">Academic Excellence Felicitation 2023 — recognized for strong analytical and problem-solving performance</div>
+    </div>
+    <div class="award-item">
+      <div class="award-bullet">🥈 runner-up</div>
+      <div class="award-text">Codorithm State-Level Coding Competition — Runner-up among hundreds of participants</div>
+    </div>
+    <div class="award-item">
+      <div class="award-bullet">⭐ rating</div>
+      <div class="award-text">HackerRank Java — 3 Star Rating, demonstrating strong core Java proficiency</div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<section id="contact">
+  <div class="section-eyebrow">// contact</div>
+  <h2 class="section-title">Let's build something</h2>
+  <p class="contact-sub">
+    Final year student open to full-time roles, internships, and interesting side projects. Drop a message!
+  </p>
+  <div class="contact-links">
+    <a class="contact-chip" href="mailto:akekapure10@gmail.com">
+      <span>✉</span> akekapure10@gmail.com
+    </a>
+    <a class="contact-chip" href="tel:+919172884504">
+      <span>📞</span> +91 9172884504
+    </a>
+    <a class="contact-chip" href="https://github.com/anushree-kekapure" target="_blank">
+      <span>⌥</span> GitHub
+    </a>
+    <a class="contact-chip" href="https://linkedin.com/in/anushree-kekapure" target="_blank">
+      <span>in</span> LinkedIn
+    </a>
+  </div>
+</section>
+
+<footer>
+  <span style="color:var(--cyan)">anushree kekapure</span> · built with ❤️ · 2025
+</footer>
+
+</body>
+</html>
