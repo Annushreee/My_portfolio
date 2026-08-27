@@ -2,7 +2,7 @@
 
 Personal developer portfolio built with vanilla HTML, CSS, and JavaScript.
 
-🌐 **Live site:** [anushree-kekapure.github.io](https://anushree-kekapure.github.io)
+🌐 **Live site:** [portfolioannushree.netlify.app](https://portfolioannushree.netlify.app)
 
 > CGPA: 7.95 | B.E. Computer Science & Engineering, May 2026
 
